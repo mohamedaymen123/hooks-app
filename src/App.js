@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./App.css";
 import { moviesData } from "./data";
-import MovieList from "./Components/MovieList";
-import AddNewMovie from "./Components/AddNewMovie";
-import Surch from "./Components/Surch";
+import AddNewMovie from "./components/AddNewMovie";
+import Surch from "./components/Surch";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import MovieList from "./components/MovieList"
+import Info from "./components/Info";
 
 
 
@@ -28,7 +30,11 @@ function App() {
     );
   return (
     <div className="App">
-      <Surch
+    <Router>
+<Routes>
+<Route  path="/" element={
+  <>
+ <Surch
         filterText={filterText}
         filterRating={filterRating}
         handleTextFiler={handleTextFiler}
@@ -44,6 +50,14 @@ function App() {
         handleEdit={handleEdit}
       />
       <AddNewMovie handleAdd={handleAdd} />
+  </>
+} />
+<Route path="/info/:name"  element={<Info movies={movies} />} />
+
+     
+</Routes>
+    </Router>
+
     </div>
   );
 }

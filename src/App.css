@@ -147,3 +147,8 @@ form > label {
     width: calc(100vw / 3);
   }
 }
+iframe{
+  width: 550px;
+  height: 550px;
+  margin-left: 50px;
+}

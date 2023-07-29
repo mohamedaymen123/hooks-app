@@ -7,6 +7,8 @@ const EditMovie = ({ handleEdit, film }) => {
   const [image, setImage] = useState(film.image);
   const [date, setDate] = useState(film.date);
   const [rating, setRating] = useState(film.rating);
+  const [disc, setDisc] = useState(film.disc);
+  const [video, setVideo] = useState(film.Video);
   const handleRating = (x) => setRating(x);
   const handleSubmit = () => {
     const newElement = {
@@ -15,6 +17,8 @@ const EditMovie = ({ handleEdit, film }) => {
       date,
       rating,
       name,
+      disc,
+      video,
     };
     handleEdit(newElement);
     closeModal();
@@ -67,6 +71,22 @@ const EditMovie = ({ handleEdit, film }) => {
             value={image}
             onChange={(e) => setImage(e.target.value)}
           />
+
+         <label>Movie disc</label>
+          <input
+            type="text"
+            value={disc}
+            onChange={(e) => setDisc(e.target.value)}
+          />
+
+         <label>Movie video</label>
+          <input
+            type="text"
+            value={video}
+            onChange={(e) => setVideo(e.target.value)}
+          />
+
+       
           <StarRating rating={rating} handleRating={handleRating} />
           <label>Movie Date</label>
           <input
